@@ -10,18 +10,18 @@ export default class MyIntro extends Component {
   disableTutorial = () => (this.start = false);
 
   <template>
-    {{#Step step=1 intro="Step Component"}}
+    <Step @step={{1}} @intro="Step Component">
       <div class="row">
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
-            {{#Step step=2 intro="Card Content"}}
+            <Step @step={{2}} @intro="Card Content">
               <div class="card-content white-text">
                 <span class="card-title">Card Title</span>
                 <p>I am a very simple card. I am good at containing small bits
                   of information. I am convenient because I require little
                   markup to use effectively.</p>
               </div>
-            {{/Step}}
+            </Step>
             <div class="card-action">
               <a href="#">This is a link</a>
               <a href="#">This is a link</a>
@@ -29,7 +29,7 @@ export default class MyIntro extends Component {
           </div>
         </div>
       </div>
-    {{/Step}}
+    </Step>
 
     <button
       class="btn waves-effect waves-light"
@@ -40,6 +40,6 @@ export default class MyIntro extends Component {
       <i class="material-icons right">Start Tutorial</i>
     </button>
 
-    {{Intro start-if=this.start on-exit=this.disableTutorial}}
+    <Intro @start-if={{this.start}} @on-exit={{this.disableTutorial}} />
   </template>
 }
